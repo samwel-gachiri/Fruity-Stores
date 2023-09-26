@@ -1,0 +1,21 @@
+{
+  "name": "fruity-stores",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "devStart":"nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "stripe": "^12.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

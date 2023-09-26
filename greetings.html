@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #greeting {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="greeting"></div>
+
+    <script>
+      var date = new Date();
+      var hour = date.getHours();
+      var greeting = "";
+
+      if (hour >= 12 && hour < 18) {
+        greeting = "Good Morning";
+      } else if (hour >= 0 && hour < 12) {
+        greeting = "Good Afternoon";
+      } else {
+        greeting = "Good Evening";
+      }
+
+      var greetingElement = document.getElementById("greeting");
+      greetingElement.innerHTML = greeting;
+    </script>
+  </body>
+</html>

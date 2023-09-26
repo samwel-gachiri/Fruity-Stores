@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="Fruity" />
+    <meta name="description" content="" />
+    <meta name="author" content="vincenteoracle" />
+
+    <title>Fruity</title>
+    <!-- slider stylesheet -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700|Raleway:400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+
+    <link rel="icon" href=".\images\Fruit2.jpg" type="image/x-icon" />
+
+    <link
+      rel="shortcut icon"
+      href="\Fruity Stores\Fruity stores\images\Fruit2.jpg"
+      type="image/x-icon"
+    />
+    <link rel="icon" href="images\Fruit2.jpg" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div class="top-bar">
+      <h6 class="user">
+        Hello <span id="user_name"></span>, <span id="time_day"></span>
+      </h6>
+      <script>
+        const userName = sessionStorage.getItem('username');
+        document.getElementById('user_name').textContent =userName;
+      </script>
+      <script>
+        // const username = localStorage.getItem('username');
+        // document.getElementById('user_name').textContent =username;
+        // var name = "Vincent";
+        // document.getElementById("user_name").innerHTML = name;
+      var date = new Date();
+      var hour = date.getHours();
+      var greeting = "";
+
+      if (hour >= 0 && hour < 12) {
+        greeting = "Good Morning?";
+      } else if (hour >= 12 && hour < 14 ) {
+        greeting = "Good Afternoon?";
+      } 
+      else if(hour>14 && hour<0){
+        greeting="Good Evening?"
+      }
+      else {
+        greeting = "Good Evening?";
+      }
+      var greetingElement = document.getElementById("time_day");
+      greetingElement.innerHTML = greeting;
+    </script>
+      </script>
+    </div>
+    <div class="signup-signin">
+      <nav id="nav">
+        <ul class="info">
+          <a id="infos" href="contact.html">Account</a>
+          <a id="info" href="contact.html">FAQs</a>
+          <a id="info" href="login-signUp.html">Sign Up</a>
+          <a id="info" href="login-signUp.html">Sign In</a>
+          <a id="info" href="login-signUp.html">Log Out</a>
+        </ul>
+      </nav>
+    </div>
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+              <img id="friuit1" src="images/friuit1.jpg" alt="" />
+              <span> Fruity </span>
+            </a>
+
+            <div class="navbar-collapse" id="nav-bar">
+              <div class="custom_menu-btn">
+                <button onclick="openNav()">
+                  <span class="s-1"> </span>
+                  <span class="s-2"> </span>
+                  <span class="s-3"> </span>
+                </button>
+              </div>
+              <div id="myNav" class="overlay">
+                <div class="overlay-content">
+                  <a href="index.html">HOME</a>
+                  <a href="about.html">ABOUT</a>
+                  <a href="food.html">Fruits</a>
+                  <a href="garden.html">Gardens</a>
+                  <a href="contact.html">Contact Us</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+      <!-- slider section -->
+      <section class="slider_section position-relative">
+        <div class="side_heading">
+          <h5>Fruity Fruits</h5>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-3 col-md-4 offset-md-1">
+              <div
+                id="carouselExampleIndicators"
+                class="carousel slide"
+                data-ride="carousel"
+              >
+                <ol class="carousel-indicators">
+                  <li
+                    data-target="#carouselExampleIndicators"
+                    data-slide-to="0"
+                    class="active"
+                  >
+                    01
+                  </li>
+                  <li
+                    data-target="#carouselExampleIndicators"
+                    data-slide-to="1"
+                  >
+                    02
+                  </li>
+                  <li
+                    data-target="#carouselExampleIndicators"
+                    data-slide-to="2"
+                  >
+                    03
+                  </li>
+                  <li
+                    data-target="#carouselExampleIndicators"
+                    data-slide-to="3"
+                  >
+                    04
+                  </li>
+                  <li
+                    data-target="#carouselExampleIndicators"
+                    data-slide-to="4"
+                  >
+                    05
+                  </li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="img-box b-1">
+                      <img src="images/fruit-hot1.jpg" alt="" />
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="img-box b-2">
+                      <img src="images/fruit-hot2.jpg" alt=" " />
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="img-box b-3">
+                      <img src="images/fruit-hot3.jpg" alt=" " />
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="img-box b-4">
+                      <img src="images/fruit-hot4.jpg" alt=" " />
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel_btn-box">
+                  <a
+                    class="carousel-control-prev"
+                    href="#carouselExampleIndicators"
+                    role="button"
+                    data-slide="prev"
+                  >
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a
+                    class="carousel-control-next"
+                    href="#carouselExampleIndicators"
+                    role="button"
+                    data-slide="next"
+                  >
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 offset-md-1">
+              <div class="detail-box">
+                <h1>
+                  Fresh <br />
+                  Fruits
+                </h1>
+                <p>
+                  There are many variations of fruits and some of the Lorem
+                  Ipsum available, but the majority have suffered alteration in
+                  some form, by injected humour, or randomised words
+                </p>
+
+                <div class="btn-box">
+                  <a href="contact.html" class="btn-1"> Contact Us </a>
+                  <a href="food.html" class="btn-2"> Order Now </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end slider section -->
+    </div>
+
+    <!-- about section -->
+    <section class="about_section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-5 offset-md-1">
+            <div class="detail-box">
+              <div class="heading_container">
+                <h2>
+                  About <br />
+                  Our <br />
+                  Fruits
+                </h2>
+                <hr />
+              </div>
+              <p>
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form, by
+                injected humour, or randomised words
+              </p>
+              <a
+                href="https://www.betterhealth.vic.gov.au/health/healthyliving/fruit-and-vegetables"
+              >
+                Read More
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 px-0">
+            <div class="img-box">
+              <img src="images/fruitsCategorie.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end about dish.jpg section -->
+
+    <!-- dish section -->
+
+    <section class="dish_section layout_padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="dish_container">
+              <div class="box">
+                <img src="images/dish.jpg" alt="" />
+              </div>
+              <div class="box">
+                <img src="images/orange-tree.jpg" alt="" />
+              </div>
+              <div class="box">
+                <img src="images/pawpaw-tree.jpg" alt="" />
+              </div>
+              <div class="box">
+                <img src="images/mangoe-tree.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="detail-box">
+              <div class="heading_container">
+                <hr />
+                <h2>
+                  Our <br />
+                  Fruit <br />
+                  varieties
+                </h2>
+              </div>
+              <p>
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form, by
+                injected humour, or randomised words
+              </p>
+              <a
+                href="https://www.betterhealth.vic.gov.au/health/healthyliving/fruit-and-vegetables"
+              >
+                Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end dish section -->
+    <!-- hot section -->
+
+    <section class="hot_section layout_padding">
+      <div class="container">
+        <div class="heading_container">
+          <h2>What's Hot? Explore</h2>
+          <hr />
+        </div>
+        <p>
+          There are many variations of passages of Lorem Ipsum available, but
+          the majority
+        </p>
+      </div>
+      <div class="carousel_container">
+        <div class="container">
+          <div class="carousel-wrap">
+            <div class="owl-carousel">
+              <div class="item">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="images/pineaples-sales8.jpg" />
+                  </div>
+                  <div class="detail-box">
+                    <h4>$30</h4>
+                    <p>
+                      There are many variations of passages of Lorem Ipsum
+                      available,
+                    </p>
+                    <a href=""> Order Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="images/grapes-sales5.jpg" />
+                  </div>
+                  <div class="detail-box">
+                    <h4>$30</h4>
+                    <p>
+                      There are many variations of passages of Lorem Ipsum
+                      available,
+                    </p>
+                    <a href="food.html"> Order Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="images/mangos-sales5.jpg" />
+                  </div>
+                  <div class="detail-box">
+                    <h4>$38</h4>
+                    <p>
+                      There are many variations of passages of Lorem Ipsum
+                      available,
+                    </p>
+                    <a href="food.html"> Order Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="images/bananas-sales2.jpg" />
+                  </div>
+                  <div class="detail-box">
+                    <h4>$45</h4>
+                    <p>
+                      There are many variations of passages of Lorem Ipsum
+                      available,
+                    </p>
+                    <a href="food.html"> Order Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="images/oranges-sales7.jpg" />
+                  </div>
+                  <div class="detail-box">
+                    <h4>$40</h4>
+                    <p>
+                      There are many variations of passages of Lorem Ipsum
+                      available,
+                    </p>
+                    <a href="food.html"> Order Now </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end hot section -->
+
+    <!-- app section -->
+
+    <section class="app_section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="img-box">
+              <img src="images/man-with-phone.png" alt="" />
+            </div>
+          </div>
+          <div class="col-md-6 offset-md-2">
+            <div class="detail-box">
+              <h2>
+                <span> 50% </span> off On every fruit download now our app
+              </h2>
+              <p>
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form, by
+              </p>
+              <div class="btn-box">
+                <a href="https://www.apple.com/store">
+                  <img src="images/app-store.png" alt="Our Mobile app" />
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.premiumsoftware.fruitsandvegetables&hl=en-IN"
+                >
+                  <img src="images/play-store.png" alt="Our Mobile app" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end app section -->
+
+    <!-- client section -->
+
+    <section class="client_section layout_padding">
+      <div class="container">
+        <div class="heading_container">
+          <hr />
+          <h2>What our client says</h2>
+        </div>
+        <div
+          id="carouselExample2Indicators"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <ol class="carousel-indicators">
+            <li
+              data-target="#carouselExample2Indicators"
+              data-slide-to="0"
+              class="active"
+            ></li>
+            <li
+              data-target="#carouselExample2Indicators"
+              data-slide-to="1"
+            ></li>
+            <li
+              data-target="#carouselExample2Indicators"
+              data-slide-to="2"
+            ></li>
+            <li
+              data-target="#carouselExample2Indicators"
+              data-slide-to="3"
+            ></li>
+            <li
+              data-target="#carouselExample2Indicators"
+              data-slide-to="4"
+            ></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="box">
+                <div class="client_id">
+                  <div class="img-box">
+                    <img
+                      class="imag-box"
+                      src="images/client.png"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <h4>John Doe</h4>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered alteration in some
+                    form, by injected humour, or randomised words which .
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="box">
+                <div class="client_id">
+                  <div class="img-box">
+                    <img
+                      class="imag-box"
+                      src="images/woman-head4.jpg"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <h4>Anam Fariya</h4>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    Here There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered alteration in some
+                    form, by injected humour, or randomised words which .
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="box">
+                <div class="client_id">
+                  <div class="img-box">
+                    <img
+                      class="imag-box"
+                      src="images/man4.jpg"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <h4>Shahil Kumar</h4>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    Also There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered alteration in some
+                    form, by injected humour, or randomised words which .
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="box">
+                <div class="client_id">
+                  <div class="img-box">
+                    <img
+                      class="imag-box"
+                      src="images/woman-head3.jpg"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <h4>Paruzz Paverthy</h4>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    In addition There are many variations of passages of Lorem
+                    Ipsum available, but the majority have suffered alteration
+                    in some form, by injected humour, or randomised words which
+                    .
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="box">
+                <div class="client_id">
+                  <div class="img-box">
+                    <img
+                      class="imag-box"
+                      src="images/man-head2.avif"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <h4>Jacksmith sand</h4>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered alteration in some
+                    form, by injected humour, or randomised words which .
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end client section -->
+
+    <!-- contact section -->
+    <section class="contact_section layout_padding-bottom">
+      <div class="container">
+        <h2>Get In touch</h2>
+        <div class="row">
+          <div class="col-md-7">
+            <div class="form_container">
+              <form action="">
+                <input type="text" placeholder="Name" />
+                <input type="text" placeholder="Phone number" />
+                <input type="email" placeholder="Email" />
+                <input
+                  type="text"
+                  placeholder="Message"
+                  class="message_input"
+                />
+                <button>Send</button>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="contact_box">
+              <a href="">
+                <div class="img-box">
+                  <img src="images/location.png" alt="" />
+                </div>
+                <h6>Gb road 123 Nairobi Kenya</h6>
+              </a>
+              <a href="">
+                <div class="img-box">
+                  <img src="images/call.png" alt="" />
+                </div>
+                <h6>(+254) 768653509</h6>
+              </a>
+              <a href="">
+                <div class="img-box">
+                  <img src="images/envelope.png" alt="" />
+                </div>
+                <h6><span>Contact us</span>(Someone@gmail.com)</h6>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end contact section -->
+
+    <!-- subscribe section -->
+    <section class="subscribe_section">
+      <div class="container">
+        <form action="">
+          <div class="row">
+            <div class="col-lg-3 col-md-4">
+              <label for="subEmail"> Our Newsletter </label>
+            </div>
+            <div class="col-lg-9 col-md-8">
+              <div class="box">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  id="subEmail"
+                />
+                <button>Subscribe</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- end subscribe section -->
+
+    <!-- footer section -->
+    <section class="container-fluid footer_section">
+      <div class="social_container">
+        <h4>Follow on</h4>
+        <div class="social-box">
+          <a href="https://www.facebook.com/were.vincente">
+            <img src="images/fb.png" id="facebook" alt="Our facebook page" />
+          </a>
+          <a href="https://twitter.com/Wereouma1">
+            <img src="images/twitter.png" id="twitter" alt="Our twitter Page" />
+          </a>
+          <a href="https://www.linkedin.com/in/were-vincent-a097a4220/">
+            <img
+              src="images/linkedin.png"
+              id="linkedin"
+              alt="Our linkedin Page"
+            />
+          </a>
+          <a href="https://www.youtube.com/channel/UCZpNO4cfryOGcr1p1RHfouA">
+            <img
+              src="images/youtube.png"
+              id="youtube"
+              alt="Our youtube Channel"
+            />
+          </a>
+          <a
+            href="https://wa.me/254768653509 https://www.instagram.com/vincenteoracle/"
+          >
+            <img
+              src="images/instagram.jpg"
+              id="instagram"
+              alt="Our instagram Channel"
+            />
+          </a>
+        </div>
+      </div>
+      <!-- <script>
+        const currYear = new Date().getFullYear();
+        <p>
+          &copy;&{currYear} All Rights Reserved. Design by
+          <a href="https://html.design/">Offmarket Fruits Stores</a>
+        </p>;
+      </script> -->
+      <p class="copyright">
+        &copy;Copyright 2023&mdash;<span id="currYear"></span> All Rights
+        Reserved. Design by
+        <a href="https://index.html">Offmarket Fruits Stores</a>
+      </p>
+    </section>
+    <!-- footer section -->
+    <script>
+      var date = new Date();
+      var year = date.getFullYear();
+      document.getElementById("currYear").innerHTML = year;
+    </script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    ></script>
+
+    <script>
+      function openNav() {
+        document.getElementById("myNav").classList.toggle("menu_width");
+        document
+          .querySelector(".custom_menu-btn")
+          .classList.toggle("menu_btn-style");
+      }
+    </script>
+
+    <!-- owl carousel script -->
+    <script type="text/javascript">
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 35,
+        navText: [],
+        autoplay: true,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          400: {
+            items: 2,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 4,
+          },
+        },
+      });
+    </script>
+    <!-- end of script> -->
+    <!-- end owl carousel script -->
+  </body>
+</html>
