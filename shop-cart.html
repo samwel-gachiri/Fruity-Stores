@@ -22,6 +22,7 @@
     <title>Fruity shopping Cart</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="app.js"></script>
+    <script>"sms-script.js"</script>
   </head>
   <body class="sub_page">
      <div class="hero_area">
@@ -91,16 +92,17 @@
         <div class="row">
           <div class="col-md-7">
             <div class="form_container">
-              <form action="">
-                <input type="text" placeholder="Name" />
-                <input type="text" placeholder="Phone number" />
-                <input type="email" placeholder="Email" />
+              <form id="messagingForm">
+                <input type="text" name="name" placeholder="Name" />
+                <input type="text" name="phoneNumber" placeholder="Phone number" />
+                <input type="email" name="email" placeholder="Email" />
                 <input
                   type="text"
+                  name="message"
                   placeholder="Message"
                   class="message_input"
                 />
-                <button>Send</button>
+                <button type="submit">Send</button>
               </form>
             </div>
           </div>
@@ -241,6 +243,72 @@
           },
         },
       });
+    </script>
+    <script>
+      function send_sms(message, phoneNumber, timeout = 10000) { // Default timeout is 10 seconds (10000 milliseconds)
+      return new Promise((resolve, reject) => {
+          setTimeout(() => {
+                  reject(new Error('Request timed out')); // Reject the promise if the request takes too long
+              }, timeout);
+
+              fetch('https://localhost:7000/Sms/Send', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                      "message": message,
+                      "phoneNumber": phoneNumber
+                  })
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  return response.text();
+              })
+              .then(text => {
+                  resolve(text); // Resolve the promise with the response text
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  reject(error); // Reject the promise with the error
+              });
+          });
+      }
+
+
+      // Get the form element
+      const form = document.getElementById("messagingForm");
+
+      // Function to run when the form is submitted
+      function handleSubmit(event) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        // Get the form data
+        const formData = new FormData(form);
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const phoneNumber = formData.get("phoneNumber")
+        const message = formData.get("message")
+
+        // Do something with the form data, for example, log it to the console
+        console.log(`Name: ${name}, Email: ${email}`);
+        const contact_sender_response = send_sms(
+          `Message from:\nemail:${email}\nphone: ${phoneNumber}\nmessage:\n${message}`,
+          `0705644805`
+        )
+        const customer_mobile_response = send_sms(
+          `Your message has been received`,
+          `${phoneNumber}`
+        )
+        alert(`Message sent to contact center: ${contact_sender_response}\nMessage sent to customer: ${customer_mobile_response}`)
+      }
+
+      // Add an event listener to the form, listening for the submit event
+      form.addEventListener("submit", handleSubmit);
+
     </script>
     <!-- end owl carousel script -->
     </div>

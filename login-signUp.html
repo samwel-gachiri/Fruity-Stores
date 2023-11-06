@@ -171,6 +171,7 @@
             Sign In
           </button>
         </form>
+        <script>"sms-script.js"</script>
         <script>
          const form = document.getElementById("login_form");
          const username_value = document.getElementById("login_email");
@@ -362,29 +363,89 @@
     const auth = getAuth();
     console.log(app);
 
+    function send_sms(message, phoneNumber, timeout = 10000) { // Default timeout is 10 seconds (10000 milliseconds)
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject(new Error('Request timed out')); // Reject the promise if the request takes too long
+        }, timeout);
+
+        fetch('https://localhost:7000/Sms/Send', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                      "message": message,
+                      "phoneNumber": phoneNumber
+                  })
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  return response.text();
+              })
+              .then(text => {
+                  resolve(text); // Resolve the promise with the response text
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  reject(error); // Reject the promise with the error
+              });
+          });
+      }
     //----- New Registration code start
     document.getElementById("btn_signup").addEventListener("click", function () {
       var name = document.getElementById("name_input").value;
       var email = document.getElementById("email_input").value;
       var password = document.getElementById("password_input").value;
+
+      // Prompt the user to enter their phone number
+      const userPhoneNumber = prompt("Please enter your phone number:");
+
+      // Generate a random six-character alphanumeric string
+      function generateRandomString(length) {
+        const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let randomString = '';
+        for (let i = 0; i < length; i++) {
+          const randomIndex = Math.floor(Math.random() * characters.length);
+          randomString += characters[randomIndex];
+        }
+        return randomString;
+      }
+
+      const randomString = generateRandomString(6); // Generate a 6-character random string
+      send_sms(`#OTP: ${randomString}`,userPhoneNumber)
+
+      const input_value = prompt("Enter the OTP given")
+      
+      if(input_value === randomString){
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            console.log(user);
+            
+            console.log("User's Phone Number:", userPhoneNumber);
+            console.log("Generated Random String:", randomString);
+            
+            
+            alert("Registration successfully!!");
+            alert("Login to Continue");
+            window.location.assign("login-signUp.html");
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+            console.log(errorMessage);
+            alert(error);
+          });
+      }else{
+        alert('Registration faileds')
+      }
       //For new registration
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log(user);
-          alert("Registration successfully!!");
-          alert("Login to Continue");
-			    window.location.assign("login-signUp.html");
-          // ...
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // ..
-          console.log(errorMessage);
-          alert(error);
-        });
     });
     //----- End
 
